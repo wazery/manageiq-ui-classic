@@ -6,9 +6,9 @@
   - if @edit[:new][:service_type] == "atomic" && !@edit[:wf] && !@edit[:new][:st_prov_type]
     .form-horizontal
       .form-group
-        %label.col-md-2.control-label= _('Catalog Item Type')
+        %label.col-md-2.control-label= _('Catalog Item Type Wazery Test')
         .col-md-8
-          - array = Array(ServiceTemplate::CATALOG_ITEM_TYPES.invert).sort_by { |a| a.first.downcase }
+          - array = Array({"amazon" => _("Amazon"), "azure" => _("Azure"), "generic" => _("Generic"), "generic_orchestration" => _("Orchestration"), "generic_ansible_playbook"   => _("Ansible Playbook"), "generic_ansible_tower" => _("AnsibleTower"), "generic_container_template" => _("Container Template"), "google" => _("Google"), "microsoft" => _("SCVMM"), "openstack" => _("OpenStack"), "redhat" => _("RHEV"), "vmware" => _("VMware"), "oem" => _("OEM")}.invert).sort_by { |a| a.first.downcase }
           = select_tag('st_prov_type',
                        options_for_select(([["<#{_('Choose')}>",nil]]) + array, nil),
                        "data-miq_sparkle_on" => true,
